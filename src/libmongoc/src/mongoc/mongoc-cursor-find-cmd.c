@@ -33,6 +33,7 @@ _prime (mongoc_cursor_t *cursor)
    cursor->operation_id = ++cursor->client->cluster.operation_id;
    /* construct { find: "<collection>", filter: {<filter>} } */
    _mongoc_cursor_prepare_find_command (cursor, &data->filter, &find_cmd);
+   /* TODO: check if tailable is passed through here */
    _mongoc_cursor_response_refresh (
       cursor, &find_cmd, &cursor->opts, &data->response);
    bson_destroy (&find_cmd);

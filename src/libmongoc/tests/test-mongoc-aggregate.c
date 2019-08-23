@@ -83,10 +83,9 @@ test_query_flags (void)
       bson_t *opt;
    } flag_and_opt_t;
 
+   /* TODO: check rest of query flags */
    flag_and_opt_t flags_and_opts[] = {
-      {MONGOC_QUERY_TAILABLE_CURSOR, tmp_bson ("{'tailable': true}")},
-      {MONGOC_QUERY_TAILABLE_CURSOR | MONGOC_QUERY_AWAIT_DATA,
-       tmp_bson ("{'tailable': true, 'awaitData': true}")}};
+      {MONGOC_QUERY_TAILABLE_CURSOR, tmp_bson ("{'tailable': true}")}};
 
    /* test with both flag and opt */
    for (i = 0; i < (sizeof flags_and_opts) / (sizeof (flag_and_opt_t)); i++) {
